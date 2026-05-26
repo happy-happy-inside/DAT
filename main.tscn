@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ccf4ade8o1ysy"]
+
+[ext_resource type="Script" uid="uid://djn41a0jmr8bi" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bjth8vy5p6tye" path="res://picture/Enemys/eye/eye_stay.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://btpj43a0colxj" path="res://picture/Background/attack_background.png" id="2_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://3npf5isl4dpw" path="res://sounds/beep.mp3" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bbv0vavqoaeb2" path="res://picture/Background/parry_background.png" id="3_w48qg"]
+[ext_resource type="Texture2D" uid="uid://b22ksspy0qtgb" path="res://picture/Background/blue_background.png" id="4_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cfu7hxrab1xws" path="res://picture/Background/green_background.png" id="5_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://c1e2p2f0wu2l4" path="res://picture/Background/yellow_background.png" id="6_yaehf"]
+[ext_resource type="Texture2D" uid="uid://dmwe2clbmnw77" path="res://picture/Background/spawn_background.png" id="7_074og"]
+[ext_resource type="Texture2D" uid="uid://d1xs38a2a5k8e" path="res://picture/Background/stay_background.png" id="8_cegan"]
+[ext_resource type="Texture2D" uid="uid://edb5l4bpl6dp" path="res://picture/Background/end.png" id="8_ryguw"]
+[ext_resource type="PackedScene" uid="uid://51x7xc4f6owf" path="res://enemy.tscn" id="10_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://bs12foowxq33k" path="res://sounds/hit.mp3" id="12_vivmo"]
+[ext_resource type="AudioStream" uid="uid://cgwpmgq3lsi57" path="res://sounds/parry.mp3" id="13_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://bl67d8w786t20" path="res://sounds/add_score.mp3" id="14_yaehf"]
+[ext_resource type="AudioStream" uid="uid://db0dcguhltj58" path="res://sounds/player_hited.mp3" id="17_074og"]
+[ext_resource type="AudioStream" uid="uid://cjts2jcsuoluc" path="res://sounds/block.mp3" id="18_cegan"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_82xsv"]
+load_path = "res://.godot/imported/stay_background.png-23cc4b1a0ba1a58dbaaf56488533322f.ctex"
+
+[node name="Main" type="Control" unique_id=798572064]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0xm2m")
+bg_attack = ExtResource("2_ycdy4")
+bg_parry = ExtResource("3_w48qg")
+bg_blue = ExtResource("4_vivmo")
+bg_green = ExtResource("5_2cqfq")
+bg_yellow = ExtResource("6_yaehf")
+bg_spawn = ExtResource("7_074og")
+bg_idle = SubResource("CompressedTexture2D_82xsv")
+bg_game_over = ExtResource("8_ryguw")
+
+[node name="Background" type="TextureRect" parent="." unique_id=908417864]
+clip_contents = true
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 300.0
+rotation = 6.2831855
+texture = ExtResource("8_cegan")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Enemy" parent="." unique_id=1398509151 instance=ExtResource("10_2cqfq")]
+z_index = 1
+z_as_relative = false
+scale = Vector2(1, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Enemy" unique_id=2125003403]
+position = Vector2(251.00003, 152)
+scale = Vector2(0.3197397, 0.31973967)
+texture = ExtResource("1_ig7tw")
+
+[node name="HitPlayer" type="AudioStreamPlayer2D" parent="." unique_id=389827356]
+stream = ExtResource("12_vivmo")
+
+[node name="ParryPlayer" type="AudioStreamPlayer2D" parent="." unique_id=795962293]
+stream = ExtResource("13_2cqfq")
+
+[node name="ScorePlayer" type="AudioStreamPlayer2D" parent="." unique_id=993126401]
+stream = ExtResource("14_yaehf")
+
+[node name="BeepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1726003174]
+stream = ExtResource("3_h2yge")
+volume_db = -7.22
+
+[node name="PlayerHit" type="AudioStreamPlayer2D" parent="." unique_id=732627807]
+stream = ExtResource("17_074og")
+volume_db = -7.22
+
+[node name="BlockPlayer" type="AudioStreamPlayer2D" parent="." unique_id=106940293]
+stream = ExtResource("18_cegan")
+volume_db = -7.22
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=621629327]
+position = Vector2(250, 150)

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://51x7xc4f6owf"]
+
+[ext_resource type="Script" uid="uid://0as4tdyslcxk" path="res://enemy.gd" id="1_wujgv"]
+[ext_resource type="Texture2D" uid="uid://bjth8vy5p6tye" path="res://picture/Enemys/eye/eye_stay.png" id="2_hb8ge"]
+[ext_resource type="Texture2D" uid="uid://dqlvxfnachu2t" path="res://picture/Enemys/eye/eye_attack.png" id="3_e1ltt"]
+[ext_resource type="Texture2D" uid="uid://b8c5kq267oh6u" path="res://picture/Enemys/eye/eye_pary.png" id="4_dxifv"]
+[ext_resource type="Texture2D" uid="uid://bx7mfrefc6w04" path="res://picture/Enemys/eye/eye_hited.png" id="5_pwjut"]
+[ext_resource type="Texture2D" uid="uid://detnyr3d7akrd" path="res://picture/Enemys/eye/eye_dye.png" id="6_n0g06"]
+
+[node name="Enemy" type="Node2D" unique_id=1398509151]
+top_level = true
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_wujgv")
+idle_tex = ExtResource("2_hb8ge")
+attack_tex = ExtResource("3_e1ltt")
+parry_tex = ExtResource("4_dxifv")
+damaged_tex = ExtResource("5_pwjut")
+dead_tex = ExtResource("6_n0g06")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2009311912]
+top_level = true
+z_index = 1
+position = Vector2(25300002, 17000000)
+scale = Vector2(1, 0.982)
+texture = ExtResource("2_hb8ge")
