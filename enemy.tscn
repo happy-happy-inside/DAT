@@ -16,10 +16,3 @@ attack_tex = ExtResource("3_e1ltt")
 parry_tex = ExtResource("4_dxifv")
 damaged_tex = ExtResource("5_pwjut")
 dead_tex = ExtResource("6_n0g06")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2009311912]
-top_level = true
-z_index = 1
-position = Vector2(25300002, 17000000)
-scale = Vector2(1, 0.982)
-texture = ExtResource("2_hb8ge")
